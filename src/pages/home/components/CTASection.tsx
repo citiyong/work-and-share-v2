@@ -72,7 +72,7 @@ export default function CTASection() {
       <div className="col-span-12 md:col-span-5 flex flex-col justify-between">
         <div>
           <span className="font-mono text-xs uppercase tracking-widest bg-paper text-accent-primary px-3 py-1.5 inline-block mb-8 font-bold">
-            🔥 첫 달 50% 할인 · 사전예약 한정
+            🔥 첫 달 10% 할인 · 사전예약 한정
           </span>
           <h2 className="font-serif text-5xl md:text-7xl font-bold leading-[0.95] mb-8">
             Claim Your <br /> Territory.

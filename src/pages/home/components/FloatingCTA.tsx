@@ -35,7 +35,7 @@ export default function FloatingCTA() {
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0 font-sans">
           <p className="text-paper text-xs font-bold truncate">
-            첫 달 50% 할인
+            첫 달 10% 할인
           </p>
           <p className="text-paper/70 text-[10px] truncate font-mono uppercase tracking-widest">
             얼리버드 사전 예약 중
