@@ -22,7 +22,7 @@ const amenities: Amenity[] = [
     index: '02',
     icon: 'ri-cup-line',
     tagEn: 'SPECIALTY COFFEE & BAR',
-    title: '무제한 에스프레소 & 음료 바',
+    title: '에스프레소 & 음료 바',
     description: '스페셜티 로스팅 원두 커피머신, 탄산음료, 프리미엄 차류를 24시간 무제한 무료 제공합니다.',
     image: '/img/photo-007.png',
   },
@@ -80,7 +80,7 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative"
+              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 relative"
             >
               <div>
                 {/* Photo frame with 3D Lift */}
@@ -101,7 +101,7 @@ export default function AmenitiesSection() {
                 <div className="bg-transparent group-hover:bg-white p-6 group-hover:-translate-y-2 group-hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent group-hover:border-ink/10 transition-all duration-300 ease-out">
                   <div className="flex items-center gap-2 mb-3">
                     <i className={`${item.icon} text-accent-primary text-lg`} />
-                    <h3 className="font-sans text-xl font-bold text-ink group-hover:text-accent-primary transition-colors">
+                    <h3 className="font-sans text-xl font-bold text-ink group-hover:text-accent-primary transition-colors whitespace-nowrap">
                       {item.title}
                     </h3>
                   </div>
@@ -109,11 +109,6 @@ export default function AmenitiesSection() {
                     {item.description}
                   </p>
                 </div>
-              </div>
-
-              <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 font-mono text-[10px] uppercase text-ink/60 tracking-widest flex justify-between items-center">
-                <span>멤버십 포함 항목</span>
-                <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">자세히 →</span>
               </div>
             </div>
           ))}

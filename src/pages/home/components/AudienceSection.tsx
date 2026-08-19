@@ -50,7 +50,7 @@ export default function AudienceSection() {
           {audiences.map((item) => (
             <div
               key={item.num}
-              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative"
+              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 relative"
             >
               {/* Image Frame with 3D Lift */}
               <div className="relative aspect-[4/3] overflow-hidden bg-ink mb-4 group-hover:-translate-y-1 group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-500">
