@@ -392,17 +392,35 @@ export default function SpaceCuration() {
                 </div>
               </div>
 
-              <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 flex items-center justify-between font-mono text-xs uppercase tracking-widest">
-                <div>
-                  <span className="font-bold text-ink text-sm">{room.price}</span>
-                  <span className="text-[10px] text-ink/60 block">{room.period}</span>
-                  {room.price !== '무료' && (
-                    <span className="text-[9px] text-ink/40 block normal-case tracking-normal">* VAT 별도</span>
-                  )}
-                </div>
-                <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">
-                  자세히 보기 →
-                </span>
+              <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 font-mono text-xs uppercase tracking-widest">
+                {room.plans ? (
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-4">
+                      {room.plans.map((plan) => (
+                        <div key={plan.months}>
+                          <div className="font-bold text-ink text-sm">{plan.price}</div>
+                          <div className="text-[9px] text-ink/60 normal-case tracking-normal">{plan.months}개월 · 월</div>
+                        </div>
+                      ))}
+                    </div>
+                    <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all shrink-0">
+                      자세히 보기 →
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold text-ink text-sm">{room.price}</span>
+                      <span className="text-[10px] text-ink/60 block">{room.period}</span>
+                    </div>
+                    <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">
+                      자세히 보기 →
+                    </span>
+                  </div>
+                )}
+                {room.price !== '무료' && (
+                  <span className="text-[9px] text-ink/40 block mt-1.5 normal-case tracking-normal">* VAT 별도</span>
+                )}
               </div>
             </div>
           ))}
@@ -468,11 +486,25 @@ export default function SpaceCuration() {
                   </div>
 
                   <div className="border-t border-ink pt-4">
-                    <div className="font-mono text-sm font-bold text-ink mb-1">
-                      {selected.price} <span className="text-xs font-normal text-ink/70">{selected.period}</span>
-                    </div>
+                    {selected.plans ? (
+                      <div className="grid grid-cols-2 gap-3">
+                        {selected.plans.map((plan) => (
+                          <div key={plan.months} className="border border-ink px-4 py-3">
+                            <div className="font-mono text-[10px] text-ink/60 uppercase tracking-widest mb-1">
+                              {plan.months}개월 계약
+                            </div>
+                            <div className="font-mono text-xl font-bold text-ink">{plan.price}</div>
+                            <div className="font-mono text-[10px] text-ink/60">/ 월</div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="font-mono text-sm font-bold text-ink mb-1">
+                        {selected.price} <span className="text-xs font-normal text-ink/70">{selected.period}</span>
+                      </div>
+                    )}
                     {selected.price !== '무료' && (
-                      <div className="font-mono text-[10px] text-ink/40">* VAT 별도</div>
+                      <div className="font-mono text-[10px] text-ink/40 mt-2">* VAT 별도</div>
                     )}
                     <button
                       onClick={scrollToCTA}
