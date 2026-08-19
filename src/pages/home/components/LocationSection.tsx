@@ -1,11 +1,10 @@
 import Reveal from './Reveal';
 
 const mapQuery = encodeURIComponent('Work & Share 대학로 공유오피스');
+const embedQuery = encodeURIComponent('혜화역 마로니에공원');
 
 const mapLinks = [
-  { label: '카카오맵', href: `https://map.kakao.com/?q=${mapQuery}` },
   { label: '네이버지도', href: `https://map.naver.com/p/search/${mapQuery}` },
-  { label: '구글맵', href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
 ];
 
 const infoItems = [
@@ -57,55 +56,37 @@ export default function LocationSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="grid grid-cols-12 gap-8">
-          {/* Architectural Line Map Container (7 Columns) */}
-          <div className="col-span-12 lg:col-span-7 border border-ink bg-paper p-2 flex flex-col justify-between hover:bg-[#dad7ce] hover:shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-all duration-300">
-            <div className="relative min-h-[340px] md:min-h-[420px] bg-paper border border-ink overflow-hidden flex items-center justify-center p-8">
-              {/* Architectural Grid Lines */}
-              <svg
-                viewBox="0 0 400 260"
-                className="absolute inset-0 w-full h-full text-ink/20"
-                preserveAspectRatio="xMidYMid slice"
-              >
-                <line x1="0" y1="60" x2="400" y2="60" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-                <line x1="0" y1="150" x2="400" y2="150" stroke="currentColor" strokeWidth="1" />
-                <line x1="0" y1="215" x2="400" y2="215" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                <line x1="90" y1="0" x2="90" y2="260" stroke="currentColor" strokeWidth="1" />
-                <line x1="230" y1="0" x2="230" y2="260" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-                <line x1="320" y1="0" x2="320" y2="260" stroke="currentColor" strokeWidth="1" />
-                <rect x="110" y="75" width="100" height="55" stroke="currentColor" strokeWidth="1" fill="none" />
-                <rect x="250" y="20" width="55" height="30" stroke="currentColor" strokeWidth="1" fill="none" />
-              </svg>
-
-              {/* Pin Hotspot */}
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="w-16 h-16 bg-accent-primary text-paper flex items-center justify-center font-mono text-xs font-bold border border-ink mb-3 shadow-none">
-                  W&amp;S
-                </div>
-                <div className="bg-paper border border-ink px-4 py-2 text-center">
-                  <span className="font-mono text-xs text-ink uppercase tracking-widest font-bold block">
-                    Work &amp; Share Daehak-ro
-                  </span>
-                  <span className="font-sans text-[11px] text-ink/70">
-                    혜화역 2번 출구 도보 5분
-                  </span>
-                </div>
+        <Reveal delay={100} className="grid grid-cols-12 gap-8 items-start">
+          {/* Map (7 Columns) */}
+          <div className="col-span-12 lg:col-span-7">
+            <div className="relative border border-ink bg-paper">
+              <iframe
+                title="Work & Share 대학로 위치 지도"
+                src={`https://www.google.com/maps?q=${embedQuery}&z=16&output=embed`}
+                className="w-full h-[340px] md:h-[400px] grayscale-[40%] contrast-[1.05]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute top-4 left-4 bg-paper border border-ink px-3 py-1.5 pointer-events-none">
+                <span className="font-mono text-[11px] text-ink uppercase tracking-widest font-bold">
+                  W&amp;S · 혜화역 도보 5분
+                </span>
               </div>
             </div>
 
             {/* Map Link Buttons */}
-            <div className="p-6 bg-paper group-hover:bg-white transition-all duration-300 border-t border-ink">
-              <span className="font-mono text-xs uppercase tracking-widest text-ink/60 font-bold block mb-4">
-외부 지도 바로가기
+            <div className="mt-4">
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/60 font-bold block mb-3">
+                외부 지도 바로가기
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="flex gap-3">
                 {mapLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs uppercase bg-paper text-ink py-3 border border-ink text-center hover:bg-ink hover:text-paper transition-colors font-bold tracking-widest"
+                    className="font-mono text-xs uppercase bg-paper text-ink px-6 py-3 border border-ink text-center hover:bg-ink hover:text-paper transition-colors font-bold tracking-widest"
                   >
                     {link.label} ↗
                   </a>
@@ -114,20 +95,20 @@ export default function LocationSection() {
             </div>
           </div>
 
-          {/* Info Details List (5 Columns) */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col justify-between gap-4">
+          {/* Info Cards (5 Columns) */}
+          <div className="col-span-12 lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {infoItems.map((item) => (
               <div
                 key={item.code}
-                className="bg-paper hover:bg-white p-6 hover:-translate-y-1.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent hover:border-ink/10 transition-all duration-300 cursor-pointer"
+                className="bg-paper hover:bg-white p-5 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-ink/15 hover:border-ink/30 transition-all duration-300 cursor-default"
               >
-                <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1.5">
                   {item.code}
                 </span>
-                <h4 className="font-sans text-lg font-bold text-ink mb-2">
+                <h4 className="font-sans text-base font-bold text-ink mb-1.5">
                   {item.title}
                 </h4>
-                <p className="font-sans text-xs text-ink/80 leading-relaxed">
+                <p className="font-sans text-xs text-ink/75 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

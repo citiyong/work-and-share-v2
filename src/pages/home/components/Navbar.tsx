@@ -57,12 +57,12 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex font-mono text-xs uppercase tracking-widest text-ink font-bold border border-ink">
+        <nav className="hidden lg:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-ink font-bold">
           {navLinks.map((link) => (
             <button
               key={link.target}
               onClick={() => scrollTo(link.target)}
-              className="px-5 py-3 border-r last:border-r-0 border-ink hover:bg-paperHover transition-colors"
+              className="border-b-2 border-transparent hover:border-accent-primary hover:text-accent-primary transition-colors pb-1"
             >
               {link.label}
             </button>
@@ -73,7 +73,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <button
             onClick={() => scrollTo('cta')}
-            className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 border border-ink hover:bg-accent-primary hover:border-accent-primary transition-colors font-bold tracking-widest"
+            className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 hover:bg-accent-primary transition-colors font-bold tracking-widest"
           >
             얼리버드 사전 예약
           </button>

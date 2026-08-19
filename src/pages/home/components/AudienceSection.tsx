@@ -82,11 +82,6 @@ export default function AudienceSection() {
                     {item.desc}
                   </p>
                 </div>
-
-                <div className="mt-8 pt-4 border-t border-ink/10 flex justify-between items-center font-mono text-xs uppercase tracking-widest text-ink/60">
-                  <span>대학로 거점</span>
-                  <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">더 알아보기 →</span>
-                </div>
               </div>
             </div>
           ))}
