@@ -1,8 +1,4 @@
 export default function HeroSection() {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="grid grid-cols-12 min-h-[90vh] border-b border-ink bg-paper">
       {/* Text Panel: 7 Columns */}
@@ -30,16 +26,6 @@ export default function HeroSection() {
           <br className="hidden sm:block" />
           프리미엄 워크스페이스를 가장 먼저 경험하세요.
         </p>
-
-        {/* CTA Button */}
-        <div className="mt-12">
-          <button
-            onClick={() => scrollTo('cta')}
-            className="inline-block bg-ink text-paper font-mono uppercase text-xs md:text-sm tracking-widest px-8 md:px-10 py-5 hover:bg-accent-primary transition-colors border-2 border-ink hover:border-accent-primary font-bold"
-          >
-            얼리버드 사전 예약
-          </button>
-        </div>
       </div>
 
       {/* Image Panel: 5 Columns (Full-bleed) */}
