@@ -3,9 +3,9 @@ import Reveal from './Reveal';
 const mapQuery = encodeURIComponent('Work & Share 대학로 공유오피스');
 
 const mapLinks = [
-  { label: 'Kakao Map', href: `https://map.kakao.com/?q=${mapQuery}` },
-  { label: 'Naver Map', href: `https://map.naver.com/p/search/${mapQuery}` },
-  { label: 'Google Maps', href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
+  { label: '카카오맵', href: `https://map.kakao.com/?q=${mapQuery}` },
+  { label: '네이버지도', href: `https://map.naver.com/p/search/${mapQuery}` },
+  { label: '구글맵', href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
 ];
 
 const infoItems = [
@@ -87,7 +87,7 @@ export default function LocationSection() {
                     Work &amp; Share Daehak-ro
                   </span>
                   <span className="font-sans text-[11px] text-ink/70">
-                    Hyehwa Station Exit 2 (Walk 5m)
+                    혜화역 2번 출구 도보 5분
                   </span>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function LocationSection() {
             {/* Map Link Buttons */}
             <div className="p-6 bg-paper group-hover:bg-white transition-all duration-300 border-t border-ink">
               <span className="font-mono text-xs uppercase tracking-widest text-ink/60 font-bold block mb-4">
-                External Navigation Links
+외부 지도 바로가기
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {mapLinks.map((link) => (

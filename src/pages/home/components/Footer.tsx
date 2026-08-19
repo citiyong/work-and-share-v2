@@ -26,6 +26,10 @@ export default function Footer() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const spaceLinks = [
+    '워킹룸', '1인실', '1.5인실', '2인실', '3인실', '2층 유리부스', '2층 자유석', '10-12인 미팅룸', '다용도 라운지',
+  ];
+
   return (
     <footer className="bg-ink text-paper border-t border-ink pt-24 pb-12 px-6 md:px-12">
       <div className="grid grid-cols-12 gap-8 border-b border-paper/30 pb-20">
@@ -44,22 +48,16 @@ export default function Footer() {
         {/* Links & Socials */}
         <div className="col-span-12 md:col-span-4 font-mono text-xs uppercase tracking-widest flex flex-col gap-5 mt-12 md:mt-0 justify-end md:items-end">
           <button
-            onClick={() => scrollTo('curation')}
-            className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
-          >
-            Explore Spaces →
-          </button>
-          <button
             onClick={() => scrollTo('location')}
             className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
           >
-            Location &amp; Access →
+            오시는 길 →
           </button>
           <button
             onClick={() => scrollTo('faq')}
             className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
           >
-            FAQ &amp; Inquiries →
+            자주 묻는 질문 →
           </button>
           <a
             href="mailto:contact@worknshare.kr"
@@ -67,6 +65,24 @@ export default function Footer() {
           >
             contact@worknshare.kr
           </a>
+        </div>
+      </div>
+
+      {/* Spaces index */}
+      <div className="py-8 border-b border-paper/30">
+        <h4 className="font-mono text-xs uppercase tracking-widest text-paper/50 font-bold mb-4">
+          공간
+        </h4>
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {spaceLinks.map((label) => (
+            <button
+              key={label}
+              onClick={() => scrollTo('curation')}
+              className="font-sans text-sm text-paper/80 hover:text-accent-primary transition-colors text-left"
+            >
+              {label}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -81,7 +97,7 @@ export default function Footer() {
             onClick={() => setTermsOpen(true)}
             className="hover:text-paper text-left w-max border-b border-paper/30 pb-0.5"
           >
-            Terms of Service &amp; Privacy Policy
+            이용약관 및 개인정보 처리방침
           </button>
         </div>
         <div className="col-span-12 md:col-span-4 md:text-right font-mono text-[11px] text-paper/50">
@@ -105,10 +121,10 @@ export default function Footer() {
                 </h3>
                 <button
                   onClick={() => setTermsOpen(false)}
-                  aria-label="Close"
+                  aria-label="닫기"
                   className="font-mono text-xs uppercase border border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors"
                 >
-                  Close [ESC]
+                  닫기 [ESC]
                 </button>
               </div>
 
@@ -129,7 +145,7 @@ export default function Footer() {
                   </h4>
                   <p>사전예약 상담 배정 및 오픈 소식 안내를 위하여 최소한의 개인정보를 수집합니다.</p>
                   <ul className="list-disc list-inside mt-2 space-y-1 font-mono text-xs">
-                    <li>수집 항목: 성명, 이메일 주소, 관심 공간 유형</li>
+                    <li>수집 항목: 이름, 연락처, 관심 공간</li>
                     <li>보유 기간: 상담 배정 완료 시 또는 수집일로부터 1년 이내</li>
                   </ul>
                 </section>
@@ -151,7 +167,7 @@ export default function Footer() {
                   onClick={() => setTermsOpen(false)}
                   className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 border border-ink hover:bg-accent-primary transition-colors"
                 >
-                  Confirm &amp; Close
+                  확인 및 닫기
                 </button>
               </div>
             </div>

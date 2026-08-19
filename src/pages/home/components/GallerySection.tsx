@@ -1,14 +1,14 @@
 import Reveal from './Reveal';
 
 const galleryImages = [
-  { src: '/img/photo-001.png', label: 'FIG A / MAIN ENTRANCE' },
-  { src: '/img/photo-003.png', label: 'FIG B / COMMUNAL LOUNGE' },
-  { src: '/img/photo-005.png', label: 'FIG C / CONFERENCE ROOM' },
-  { src: '/img/photo-007.png', label: 'FIG D / CAFE BAR' },
-  { src: '/img/photo-012.png', label: 'FIG E / SEMINAR HALL' },
-  { src: '/img/photo-013.png', label: 'FIG F / FOCUS STUDIO' },
-  { src: '/img/photo-015.png', label: 'FIG G / PRIVATE OFFICE' },
-  { src: '/img/photo-022.png', label: 'FIG H / EXECUTIVE LOUNGE' },
+  { src: '/img/photo-001.png', label: 'FIG A / 메인 입구' },
+  { src: '/img/photo-003.png', label: 'FIG B / 커뮤널 라운지' },
+  { src: '/img/photo-005.png', label: 'FIG C / 컨퍼런스룸' },
+  { src: '/img/photo-007.png', label: 'FIG D / 카페 바' },
+  { src: '/img/photo-012.png', label: 'FIG E / 세미나홀' },
+  { src: '/img/photo-013.png', label: 'FIG F / 포커스 스튜디오' },
+  { src: '/img/photo-015.png', label: 'FIG G / 프라이빗 오피스' },
+  { src: '/img/photo-022.png', label: 'FIG H / 이그제큐티브 라운지' },
 ];
 
 const track1Images = [...galleryImages, ...galleryImages];

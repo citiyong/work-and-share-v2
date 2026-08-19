@@ -19,10 +19,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Spaces', target: 'curation' },
-    { label: 'Audience', target: 'audience' },
-    { label: 'Amenities', target: 'amenities' },
-    { label: 'Location', target: 'location' },
+    { label: '공간 / 요금', target: 'curation' },
+    { label: '이용 대상', target: 'audience' },
+    { label: '시설', target: 'amenities' },
+    { label: '오시는 길', target: 'location' },
     { label: 'FAQ', target: 'faq' },
   ];
 
@@ -34,18 +34,27 @@ export default function Navbar() {
     >
       <div className="flex justify-between items-center px-6 py-5 md:px-12">
         {/* Brand */}
-        <div className="text-2xl md:text-3xl font-serif font-black uppercase tracking-tighter text-ink">
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="hover:text-accent-primary transition-colors"
-          >
-            Work &amp; Share
-          </a>
-        </div>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="flex items-center gap-2 group"
+        >
+          <img
+            src="/logo-mark.png"
+            alt=""
+            aria-hidden="true"
+            style={{ filter: 'brightness(0)' }}
+            className="h-8 md:h-9 w-auto object-contain group-hover:scale-105 transition-transform"
+          />
+          <img
+            src="/wordmark.png"
+            alt="Work &amp; Share"
+            className="h-6 md:h-7 w-auto object-contain group-hover:scale-105 transition-transform"
+          />
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex font-mono text-xs uppercase tracking-widest text-ink font-bold border border-ink">
@@ -66,7 +75,7 @@ export default function Navbar() {
             onClick={() => scrollTo('cta')}
             className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 border border-ink hover:bg-accent-primary hover:border-accent-primary transition-colors font-bold tracking-widest"
           >
-            Book a Tour
+            얼리버드 사전 예약
           </button>
         </div>
 
@@ -76,7 +85,7 @@ export default function Navbar() {
           className="lg:hidden font-mono text-xs uppercase border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors font-bold tracking-widest"
           aria-label="Toggle menu"
         >
-          {mobileOpen ? 'Close' : 'Menu'}
+          {mobileOpen ? '닫기' : '메뉴'}
         </button>
       </div>
 
@@ -96,7 +105,7 @@ export default function Navbar() {
             onClick={() => scrollTo('cta')}
             className="block w-full text-center bg-ink text-paper py-3 border border-ink hover:bg-accent-primary transition-colors mt-4"
           >
-            Book a Tour
+            얼리버드 사전 예약
           </button>
         </div>
       )}

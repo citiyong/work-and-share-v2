@@ -2,6 +2,7 @@ import Reveal from './Reveal';
 
 interface Amenity {
   index: string;
+  icon: string;
   tagEn: string;
   title: string;
   description: string;
@@ -11,6 +12,7 @@ interface Amenity {
 const amenities: Amenity[] = [
   {
     index: '01',
+    icon: 'ri-wifi-line',
     tagEn: '1GBPS NETWORK',
     title: '초고속 기가 유·무선 인터넷',
     description: '이중화 구축된 대칭형 기가 비트 전용선. 끊김 없는 4K 화상회의와 대용량 파일 송수신 보장.',
@@ -18,6 +20,7 @@ const amenities: Amenity[] = [
   },
   {
     index: '02',
+    icon: 'ri-cup-line',
     tagEn: 'SPECIALTY COFFEE & BAR',
     title: '무제한 에스프레소 & 음료 바',
     description: '스페셜티 로스팅 원두 커피머신, 탄산음료, 프리미엄 차류를 24시간 무제한 무료 제공합니다.',
@@ -25,6 +28,7 @@ const amenities: Amenity[] = [
   },
   {
     index: '03',
+    icon: 'ri-printer-line',
     tagEn: 'MULTIFUNCTION PRINT',
     title: '고속 컬러 복합기 & 출력소',
     description: '흑백/컬러 초고속 출력, 스캔, 팩스 기능을 공용 스테이션에서 자유롭게 이용하세요.',
@@ -32,6 +36,7 @@ const amenities: Amenity[] = [
   },
   {
     index: '04',
+    icon: 'ri-vidicon-line',
     tagEn: '4K CONFERENCE SYSTEM',
     title: '전문 회의실 & 화상 장비',
     description: '4K 웹캠, 노이즈 캔슬링 마이크, 대형 스크린이 완비된 대·중형 회의 공간 지원.',
@@ -39,6 +44,7 @@ const amenities: Amenity[] = [
   },
   {
     index: '05',
+    icon: 'ri-shield-check-line',
     tagEn: '24/7 SECURITY ACCESS',
     title: '365일 24시간 보안 출입',
     description: '모바일/지문 인식 모션 스마트 출입 제어 시스템과 Full HD CCTV로 안전망 유지.',
@@ -46,6 +52,7 @@ const amenities: Amenity[] = [
   },
   {
     index: '06',
+    icon: 'ri-inbox-archive-line',
     tagEn: 'MAIL & ADDRESS SERVICE',
     title: '우편물 수령 & 사업자 등록',
     description: '신규 법인 및 1인 기업 사업자 주소지 등록 및 일일 전용 우편물/택배 알림 수령 서비스.',
@@ -92,9 +99,12 @@ export default function AmenitiesSection() {
 
                 {/* Content: 3D Pure White Elevation */}
                 <div className="bg-transparent group-hover:bg-white p-6 group-hover:-translate-y-2 group-hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent group-hover:border-ink/10 transition-all duration-300 ease-out">
-                  <h3 className="font-sans text-xl font-bold text-ink mb-3 group-hover:text-accent-primary transition-colors">
-                    {item.title}
-                  </h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <i className={`${item.icon} text-accent-primary text-lg`} />
+                    <h3 className="font-sans text-xl font-bold text-ink group-hover:text-accent-primary transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="font-sans text-xs text-ink/80 leading-relaxed">
                     {item.description}
                   </p>
@@ -102,8 +112,8 @@ export default function AmenitiesSection() {
               </div>
 
               <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 font-mono text-[10px] uppercase text-ink/60 tracking-widest flex justify-between items-center">
-                <span>INCLUDED IN MEMBERSHIP</span>
-                <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">VIEW →</span>
+                <span>멤버십 포함 항목</span>
+                <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">자세히 →</span>
               </div>
             </div>
           ))}

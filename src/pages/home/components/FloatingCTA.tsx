@@ -33,20 +33,20 @@ export default function FloatingCTA() {
   return (
     <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-ink text-paper border-t border-paper/30 p-4">
       <div className="flex items-center justify-between gap-3">
-        <div className="min-w-0 font-mono">
-          <p className="text-paper text-xs font-bold uppercase tracking-widest truncate">
-            EARLY-BIRD 50% OFF
+        <div className="min-w-0 font-sans">
+          <p className="text-paper text-xs font-bold truncate">
+            첫 달 50% 할인
           </p>
-          <p className="text-paper/70 text-[10px] truncate uppercase tracking-widest">
-            Daehak-ro Raw Space
+          <p className="text-paper/70 text-[10px] truncate font-mono uppercase tracking-widest">
+            얼리버드 사전 예약 중
           </p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={scrollToCta}
-            className="font-mono text-xs uppercase bg-paper text-ink px-4 py-2 border border-paper hover:bg-accent-primary hover:text-paper transition-colors font-bold tracking-widest"
+            className="font-mono text-xs uppercase bg-paper text-ink px-4 py-2 border border-paper hover:bg-accent-primary hover:text-paper transition-colors font-bold tracking-widest shrink-0"
           >
-            Reserve Tour
+            사전 예약
           </button>
           <button
             onClick={() => setDismissed(false || true)}

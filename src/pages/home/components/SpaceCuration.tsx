@@ -9,6 +9,7 @@ interface PricePlan {
 interface Room {
   id: string;
   group: 'private' | 'shared' | 'floor2';
+  icon: string;
   tagEn: string;
   title: string;
   description: string;
@@ -20,15 +21,17 @@ interface Room {
   features: string[];
   featured?: boolean;
   eyebrow?: string;
+  variant?: 'open' | 'booth';
 }
 
 const rooms: Room[] = [
   {
     id: 'solo',
     group: 'private',
+    icon: 'ri-door-lock-line',
     tagEn: '01 / PRIVATE STUDIO',
     title: '1인실 프라이빗 스튜디오',
-    description: '방해받지 않는 완벽한 몰입을 위한 전용 공간. 노출 콘크리트와 월넛 우드의 조화.',
+    description: '완벽한 차단, 깊어지는 몰입.',
     image: '/img/photo-013.png',
     price: '₩300,000',
     period: '/ 월 (고정 전용 룸)',
@@ -43,6 +46,7 @@ const rooms: Room[] = [
   {
     id: 'solo-plus',
     group: 'private',
+    icon: 'ri-door-line',
     tagEn: '02 / STUDIO PLUS',
     title: '1.5인실 에디토리얼 스튜디오',
     description: '1인실보다 여유로운 스페이스. 개인 장비와 보관함을 넉넉하게 배정받는 몰입 공간.',
@@ -59,6 +63,7 @@ const rooms: Room[] = [
   {
     id: 'duo',
     group: 'private',
+    icon: 'ri-door-open-line',
     tagEn: '03 / DUO STUDIO',
     title: '2인실 팀 스튜디오',
     description: '파트너와 함께 협업하며 시너지를 만들어 내는 소규모 데스크 오피스.',
@@ -75,6 +80,7 @@ const rooms: Room[] = [
   {
     id: 'trio',
     group: 'private',
+    icon: 'ri-team-line',
     tagEn: '04 / TRIO STUDIO',
     title: '3인실 이그제큐티브 스튜디오',
     description: '소규모 스타트업 및 창작 팀을 위한 독립적인 3인 프로젝트 룸.',
@@ -91,7 +97,10 @@ const rooms: Room[] = [
   {
     id: 'glass-booth',
     group: 'floor2',
+    variant: 'booth',
+    icon: 'ri-user-line',
     tagEn: '05 / GLASS BOOTH',
+    eyebrow: 'PRIVATE BOOTH · 1인 전용',
     title: '2층 1인 유리부스',
     description: '독립된 통유리 도어로 시각적 개방감과 음향 차단을 동시에 확보한 1인 전용 부스.',
     image: '/img/photo-019.png',
@@ -107,7 +116,10 @@ const rooms: Room[] = [
   {
     id: 'open-seat',
     group: 'floor2',
+    variant: 'open',
+    icon: 'ri-armchair-line',
     tagEn: '06 / OPEN SEAT',
+    eyebrow: 'OPEN · 비고정 좌석',
     title: '2층 도서관형 오픈 좌석',
     description: '자유롭게 좌석을 선택하며 라이브러리 분위기에서 정숙하게 몰입하는 비고정 데스크.',
     image: '/img/photo-020.png',
@@ -117,30 +129,49 @@ const rooms: Room[] = [
     features: ['2층 도서관형 오픈 좌석 자유 이용', '고속 유무선 Wi-Fi', '무제한 음료 바 제공', '초고속 복합기 이용'],
   },
   {
+    id: 'working-room',
+    group: 'shared',
+    icon: 'ri-computer-line',
+    tagEn: '07 / WORKING ROOM',
+    title: '워킹룸 고정 좌석',
+    description: '빠른 인터넷과 넓은 책상이 제공되는 고정 좌석 오픈 오피스.',
+    image: '/img/photo-001.png',
+    price: '₩190,000',
+    period: '/ 월 (고정 좌석)',
+    tags: ['고속 인터넷', '고정 좌석'],
+    features: ['고정 좌석 오픈 데스크', '무제한 음료 제공', '고속 유무선 인터넷', '회의실 월 2시간 제공', '프린터 이용'],
+  },
+  {
     id: 'meeting-room',
     group: 'shared',
-    tagEn: '07 / CONFERENCE',
+    icon: 'ri-presentation-line',
+    tagEn: '08 / CONFERENCE',
     title: '10-12인 컨퍼런스 미팅룸',
     description: '4K 스크린과 화상회의 시스템이 갖춰진 전문 미팅 & 프레젠테이션 공간.',
     image: '/img/photo-005.png',
     price: '₩50,000',
     period: '/ 시간 (10-12인)',
     tags: ['4K 스크린', '시간 단위 예약'],
-    features: ['10-12인 대형 대리석 테이블', '4K 화상회의 카메라 & 마이크', '대형 화이트보드 제공', '무제한 음료 바 이용'],
+    features: ['10-12인 대형 테이블', '4K 화상회의 카메라 & 마이크', '대형 화이트보드 제공', '무제한 음료 바 이용'],
   },
   {
     id: 'lounge',
     group: 'shared',
-    tagEn: '08 / MULTI LOUNGE',
+    icon: 'ri-sofa-line',
+    tagEn: '09 / MULTI LOUNGE',
     title: '커뮤니티 멀티 라운지',
     description: '휴식과 우연한 아이디어 교류가 이루어지는 에이스 호텔 스타일 커뮤니티 공간.',
     image: '/img/photo-007.png',
-    price: 'MEMBERS ONLY',
-    period: '멤버십 전용 무제한',
+    price: '무료',
+    period: '회원 전용 무제한 이용',
     tags: ['무제한 이용', '음료 바'],
-    features: ['멤버십 회원 무제한 이용', '스페셜티 원두 커스텀 에스프레소', '인더스트리얼 인테리어 라운지', '네트워킹 파티 장소'],
+    features: ['멤버십 회원 무제한 이용', '스페셜티 원두 커스텀 에스프레소', '네트워킹 이벤트 공간', '휴식 및 미팅 공간 겸용'],
   },
 ];
+
+function ctaLabel(roomId: string) {
+  return roomId === 'trio' || roomId === 'meeting-room' ? '문의하기' : '사전 예약하기';
+}
 
 export default function SpaceCuration() {
   const [selected, setSelected] = useState<Room | null>(null);
@@ -189,10 +220,10 @@ export default function SpaceCuration() {
         {/* Tab Filters */}
         <div className="flex flex-wrap gap-2 font-mono text-xs uppercase tracking-widest font-bold">
           {[
-            { id: 'all', label: 'All Spaces' },
-            { id: 'private', label: 'Private Studio' },
-            { id: 'floor2', label: '2F Booth & Open' },
-            { id: 'shared', label: 'Shared & Lounge' },
+            { id: 'all', label: '전체' },
+            { id: 'private', label: '전용 룸' },
+            { id: 'floor2', label: '2층 부스·자유석' },
+            { id: 'shared', label: '공용·라운지' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -220,7 +251,7 @@ export default function SpaceCuration() {
           />
           <div className="absolute top-6 left-6 bg-paper px-4 py-2 border border-ink">
             <span className="font-mono text-xs text-ink uppercase tracking-widest font-bold">
-              FEATURED / 01 PRIVATE STUDIO
+              추천 / 01 PRIVATE STUDIO
             </span>
           </div>
         </div>
@@ -234,8 +265,7 @@ export default function SpaceCuration() {
               Studio <br /> Offices
             </h3>
             <p className="mt-6 font-sans text-ink/80 leading-relaxed text-sm md:text-base break-keep">
-              방해받지 않는 완벽한 몰입을 위한 프라이빗 오피스. 거친 질감의 노출 콘크리트 벽면과
-              따뜻한 월넛 우드 데스크가 극적인 대조를 이루며 안정적인 비즈니스 기반을 지원합니다.
+              방해받지 않는 완벽한 몰입을 위한 프라이빗 오피스. 안정적인 비즈니스 기반을 지원합니다.
             </p>
           </div>
           <div className="mt-12 pt-6 border-t border-ink">
@@ -243,7 +273,7 @@ export default function SpaceCuration() {
               onClick={() => setSelected(rooms[0])}
               className="text-left font-mono uppercase text-xs border-b-2 border-ink pb-2 hover:text-accent-primary hover:border-accent-primary transition-colors tracking-widest font-bold"
             >
-              Explore Studio Specifications →
+              전용 룸 자세히 보기 →
             </button>
           </div>
         </div>
@@ -260,8 +290,8 @@ export default function SpaceCuration() {
               Communal <br /> Desks
             </h3>
             <p className="mt-6 font-sans text-ink/80 leading-relaxed text-sm md:text-base break-keep">
-              우연한 마주침이 새로운 영감을 만들어냅니다. 원목 테이블과 인더스트리얼 조명이
-              어우러진 라운지에서, 매일 자유롭게 자리를 선택하고 커뮤니티와 밀도 있게 교류하세요.
+              우연한 마주침이 새로운 영감을 만들어냅니다. 매일 자유롭게 자리를 선택하고
+              커뮤니티와 밀도 있게 교류하세요.
             </p>
           </div>
           <div className="mt-12 pt-6 border-t border-ink">
@@ -269,7 +299,7 @@ export default function SpaceCuration() {
               onClick={() => setSelected(rooms[5])}
               className="text-left font-mono uppercase text-xs border-b-2 border-ink pb-2 hover:text-accent-secondary hover:border-accent-secondary transition-colors tracking-widest font-bold"
             >
-              Join the Communal Workspace →
+              공용 공간 둘러보기 →
             </button>
           </div>
         </div>
@@ -283,7 +313,7 @@ export default function SpaceCuration() {
           />
           <div className="absolute bottom-6 left-6 bg-paper px-4 py-2 border border-ink z-10">
             <span className="font-mono text-xs text-ink uppercase tracking-widest font-bold">
-              Fig 2. Communal Lounge
+              Fig 2. 커뮤널 라운지
             </span>
           </div>
         </div>
@@ -292,14 +322,20 @@ export default function SpaceCuration() {
       {/* Grid of All Spaces */}
       <div className="px-6 md:px-12 py-16 bg-paper">
         <h3 className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold mb-8">
-          Complete Space Index ({filteredRooms.length})
+          전체 공간 목록 ({filteredRooms.length})
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredRooms.map((room) => (
             <div
               key={room.id}
-              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative"
+              className={`bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative ${
+                room.variant === 'open'
+                  ? 'border-2 border-dashed border-accent-secondary/50 hover:border-accent-secondary'
+                  : room.variant === 'booth'
+                  ? 'border border-accent-primary/50 hover:border-accent-primary'
+                  : ''
+              }`}
               onClick={() => setSelected(room)}
             >
               <div>
@@ -314,12 +350,31 @@ export default function SpaceCuration() {
                       {room.tagEn}
                     </span>
                   </div>
+                  {room.eyebrow && (
+                    <div
+                      className={`absolute bottom-3 left-3 px-2.5 py-1 border font-mono text-[9px] uppercase tracking-widest font-bold ${
+                        room.variant === 'booth'
+                          ? 'bg-accent-primary text-paper border-accent-primary'
+                          : 'bg-accent-secondary text-paper border-accent-secondary'
+                      }`}
+                    >
+                      {room.eyebrow}
+                    </div>
+                  )}
+                  {room.featured && (
+                    <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-accent-primary text-paper border border-accent-primary font-mono text-[9px] uppercase tracking-widest font-bold">
+                      BEST
+                    </div>
+                  )}
                 </div>
 
                 <div className="bg-transparent group-hover:bg-white p-6 group-hover:-translate-y-2 group-hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent group-hover:border-ink/10 transition-all duration-300 ease-out">
-                  <h4 className="font-sans text-2xl font-bold text-ink mb-2 group-hover:text-accent-primary transition-colors">
-                    {room.title}
-                  </h4>
+                  <div className="flex items-center gap-2 mb-2">
+                    <i className={`${room.icon} text-accent-primary text-lg`} />
+                    <h4 className="font-sans text-2xl font-bold text-ink group-hover:text-accent-primary transition-colors">
+                      {room.title}
+                    </h4>
+                  </div>
                   <p className="font-sans text-xs text-ink/75 leading-relaxed mb-4">
                     {room.description}
                   </p>
@@ -341,9 +396,12 @@ export default function SpaceCuration() {
                 <div>
                   <span className="font-bold text-ink text-sm">{room.price}</span>
                   <span className="text-[10px] text-ink/60 block">{room.period}</span>
+                  {room.price !== '무료' && (
+                    <span className="text-[9px] text-ink/40 block normal-case tracking-normal">* VAT 별도</span>
+                  )}
                 </div>
                 <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">
-                  EXPLORE DETAILS →
+                  자세히 보기 →
                 </span>
               </div>
             </div>
@@ -366,15 +424,18 @@ export default function SpaceCuration() {
                   <span className="font-mono text-xs uppercase tracking-widest text-accent-primary font-bold block mb-2">
                     {selected.tagEn}
                   </span>
-                  <h3 className="font-sans text-3xl md:text-4xl font-bold text-ink">
-                    {selected.title}
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <i className={`${selected.icon} text-accent-primary text-2xl`} />
+                    <h3 className="font-sans text-3xl md:text-4xl font-bold text-ink">
+                      {selected.title}
+                    </h3>
+                  </div>
                 </div>
                 <button
                   onClick={() => setSelected(null)}
                   className="font-mono text-xs uppercase border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors font-bold"
                 >
-                  Close [ESC]
+                  닫기 [ESC]
                 </button>
               </div>
 
@@ -394,7 +455,7 @@ export default function SpaceCuration() {
                     </p>
 
                     <h4 className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold mb-3 border-b border-ink/30 pb-1">
-                      Included Amenities &amp; Services
+                      포함 서비스 &amp; 어메니티
                     </h4>
                     <ul className="space-y-2 font-sans text-xs text-ink/90 mb-6">
                       {selected.features.map((f, i) => (
@@ -410,11 +471,14 @@ export default function SpaceCuration() {
                     <div className="font-mono text-sm font-bold text-ink mb-1">
                       {selected.price} <span className="text-xs font-normal text-ink/70">{selected.period}</span>
                     </div>
+                    {selected.price !== '무료' && (
+                      <div className="font-mono text-[10px] text-ink/40">* VAT 별도</div>
+                    )}
                     <button
                       onClick={scrollToCTA}
                       className="w-full mt-4 font-mono text-xs uppercase bg-ink text-paper py-4 border border-ink hover:bg-accent-primary transition-colors font-bold tracking-widest text-center"
                     >
-                      Book Tour for {selected.title}
+                      {selected.title} {ctaLabel(selected.id)}
                     </button>
                   </div>
                 </div>

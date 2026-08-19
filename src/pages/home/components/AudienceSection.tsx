@@ -3,6 +3,7 @@ import Reveal from './Reveal';
 const audiences = [
   {
     num: '01',
+    icon: 'ri-briefcase-line',
     tagEn: 'The Professional',
     title: '회사원을 위한, 회사 밖 업무 공간',
     subtitle: '재택보다 집중되고, 카페보다 조용하게.',
@@ -11,6 +12,7 @@ const audiences = [
   },
   {
     num: '02',
+    icon: 'ri-rocket-line',
     tagEn: 'The Founder',
     title: '1인 창업가·프리랜서를 위한 공간',
     subtitle: '사업자 주소 등록부터 논문·개인 프로젝트까지.',
@@ -19,6 +21,7 @@ const audiences = [
   },
   {
     num: '03',
+    icon: 'ri-clapperboard-line',
     tagEn: 'The Performer',
     title: '대학로 공연예술인을 위한 공간',
     subtitle: '대본 리딩, 오디션 준비, 미팅까지.',
@@ -66,9 +69,12 @@ export default function AudienceSection() {
               {/* Text Frame: 3D Pure White Elevation */}
               <div className="bg-transparent group-hover:bg-white p-6 group-hover:-translate-y-2 group-hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent group-hover:border-ink/10 transition-all duration-300 ease-out flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="font-sans text-2xl font-bold text-ink mb-3 leading-snug group-hover:text-accent-primary transition-colors">
-                    {item.title}
-                  </h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <i className={`${item.icon} text-accent-primary text-lg`} />
+                    <h3 className="font-sans text-2xl font-bold text-ink leading-snug group-hover:text-accent-primary transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
                   <p className="font-mono text-xs text-accent-primary uppercase tracking-widest font-bold mb-4">
                     {item.subtitle}
                   </p>
@@ -78,8 +84,8 @@ export default function AudienceSection() {
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-ink/10 flex justify-between items-center font-mono text-xs uppercase tracking-widest text-ink/60">
-                  <span>Daehak-ro Hub</span>
-                  <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">LEARN MORE →</span>
+                  <span>대학로 거점</span>
+                  <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">더 알아보기 →</span>
                 </div>
               </div>
             </div>
