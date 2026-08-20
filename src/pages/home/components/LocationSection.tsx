@@ -61,10 +61,9 @@ export default function LocationSection() {
             <div className="relative border border-ink bg-paper">
               <iframe
                 title="Work & Share 대학로 위치 지도"
-                src={`https://www.google.com/maps?q=${embedQuery}&z=16&output=embed`}
+                src="https://www.openstreetmap.org/export/embed.html?bbox=126.9978%2C37.5792%2C127.0058%2C37.5852&layer=mapnik&marker=37.5822%2C127.0018"
                 className="w-full h-[340px] md:h-[400px] grayscale-[40%] contrast-[1.05]"
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="absolute top-4 left-4 bg-paper border border-ink px-3 py-1.5 pointer-events-none">
                 <span className="font-mono text-[11px] text-ink uppercase tracking-widest font-bold">
