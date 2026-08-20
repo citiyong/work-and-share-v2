@@ -27,7 +27,15 @@ export default function Footer() {
   };
 
   const spaceLinks = [
-    '워킹룸', '1인실', '1.5인실', '2인실', '3인실', '2층 유리부스', '2층 자유석', '10-12인 미팅룸', '다용도 라운지',
+    { label: '워킹룸', id: 'working-room' },
+    { label: '1인실', id: 'solo' },
+    { label: '1.5인실', id: 'solo-plus' },
+    { label: '2인실', id: 'duo' },
+    { label: '3인실', id: 'trio' },
+    { label: '2층 유리부스', id: 'glass-booth' },
+    { label: '2층 자유석', id: 'open-seat' },
+    { label: '10-12인 미팅룸', id: 'meeting-room' },
+    { label: '다용도 라운지', id: 'lounge' },
   ];
 
   return (
@@ -74,13 +82,13 @@ export default function Footer() {
           공간
         </h4>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
-          {spaceLinks.map((label) => (
+          {spaceLinks.map((item) => (
             <button
-              key={label}
-              onClick={() => scrollTo('curation')}
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
               className="font-sans text-sm text-paper/80 hover:text-accent-primary transition-colors text-left"
             >
-              {label}
+              {item.label}
             </button>
           ))}
         </div>

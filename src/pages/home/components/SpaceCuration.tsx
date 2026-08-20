@@ -250,7 +250,8 @@ export default function SpaceCuration() {
           {filteredRooms.map((room) => (
             <div
               key={room.id}
-              className={`bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative ${
+              id={room.id}
+              className={`bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative scroll-mt-24 ${
                 room.variant === 'open'
                   ? 'border-2 border-dashed border-accent-secondary/50 hover:border-accent-secondary'
                   : room.variant === 'booth'
