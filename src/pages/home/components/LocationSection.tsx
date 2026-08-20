@@ -1,10 +1,9 @@
 import Reveal from './Reveal';
 
-const mapQuery = encodeURIComponent('Work & Share 대학로 공유오피스');
 const embedQuery = encodeURIComponent('혜화역 마로니에공원');
 
 const mapLinks = [
-  { label: '네이버지도', href: `https://map.naver.com/p/search/${mapQuery}` },
+  { label: '네이버지도', href: `https://map.naver.com/p/search/${embedQuery}` },
 ];
 
 const infoItems = [
