@@ -25,7 +25,7 @@ const audiences = [
     tagEn: 'The Performer',
     title: '대학로 공연예술인을 위한 공간',
     subtitle: '대본 리딩, 오디션 준비, 미팅까지.',
-    desc: '혜화역 마로니에 공원 앞 도보 5분. 예술적 영감이 어우러진 창작자들의 작업실.',
+    desc: '혜화역 도보 5분. 예술적 영감이 어우러진 창작자들의 작업실.',
     image: 'https://plus.unsplash.com/premium_photo-1663036874447-5aeeca71df86?w=800&h=1000&fit=crop&auto=format&q=80',
   },
 ];

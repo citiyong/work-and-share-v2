@@ -1,6 +1,6 @@
 import Reveal from './Reveal';
 
-const embedQuery = encodeURIComponent('혜화역 마로니에공원');
+const embedQuery = encodeURIComponent('서울특별시 종로구 창경궁로 270');
 
 const mapLinks = [
   { label: '네이버지도', href: `https://map.naver.com/p/search/${embedQuery}` },
@@ -10,7 +10,7 @@ const infoItems = [
   {
     code: '01 / ADDRESS',
     title: '주소',
-    desc: '서울특별시 종로구 대학로 (혜화역 마로니에 공원 앞)',
+    desc: '서울특별시 종로구 창경궁로 270',
   },
   {
     code: '02 / SUBWAY',
@@ -20,17 +20,17 @@ const infoItems = [
   {
     code: '03 / WALKING',
     title: '도보 안내',
-    desc: '혜화역 2번 출구 출차 → 대학로 방향 직진 300m → 마로니에 공원 맞은편 빌딩 진입',
+    desc: '혜화역 2번 출구 → 창경궁로 방향 도보 5분',
   },
   {
     code: '04 / BUS',
     title: '버스 정류장',
-    desc: '대학로/마로니에공원 정류장 하차 (간선/지선 다수 노선 운행)',
+    desc: '대학로 인근 정류장 하차 (간선/지선 다수 노선 운행)',
   },
   {
     code: '05 / PARKING',
     title: '주차 안내',
-    desc: '건물 내 유료 주차 타워 이용 가능 / 인근 마로니에 공원 공영주차장 도보 2분',
+    desc: '건물 내 유료 주차 타워 이용 가능',
   },
   {
     code: '06 / HOURS',
@@ -51,7 +51,7 @@ export default function LocationSection() {
             Daehak-ro Central
           </h2>
           <p className="font-sans text-ink/70 text-base mt-4 max-w-lg leading-relaxed">
-            문화와 예술, 젊은 에너지가 공존하는 대학로 마로니에 공원 앞.
+            문화와 예술, 젊은 에너지가 공존하는 대학로 한복판.
           </p>
         </Reveal>
 
@@ -61,7 +61,7 @@ export default function LocationSection() {
             <div className="relative border border-ink bg-paper">
               <iframe
                 title="Work & Share 대학로 위치 지도"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=126.9978%2C37.5792%2C127.0058%2C37.5852&layer=mapnik&marker=37.5822%2C127.0018"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=126.9971%2C37.5820%2C127.0051%2C37.5880&layer=mapnik&marker=37.5850%2C127.0011"
                 className="w-full h-[340px] md:h-[400px] grayscale-[40%] contrast-[1.05]"
                 loading="lazy"
               />
